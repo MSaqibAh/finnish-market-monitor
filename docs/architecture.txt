@@ -1,0 +1,23 @@
+         ┌───────────────────┐
+         │   Open Data APIs  │
+         │ (Yahoo, BoF, StatFin) │
+         └─────────┬─────────┘
+                   │
+                   ▼
+         ┌───────────────────┐
+         │   Python ETL      │
+         │ fetch_stock_data.py │
+         │ fetch_macro_data.py │
+         └─────────┬─────────┘
+                   │
+                   ▼
+         ┌───────────────────┐
+         │  PostgreSQL DB    │
+         │ Schemas: raw/model│
+         └─────────┬─────────┘
+                   │
+                   ▼
+         ┌───────────────────┐
+         │    Power BI       │
+         │  Dashboard & KPIs │
+         └───────────────────┘
