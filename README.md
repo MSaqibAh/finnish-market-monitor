@@ -1,6 +1,7 @@
 # 💹 Finnish Market Monitor – Data Analytics Project
 
-**Author:** Muhammad Saqib Chouhdry | **Date:** November 2025
+**Author:** Muhammad Saqib Chouhdry  
+**Date:** November 2025
 
 ---
 
@@ -14,6 +15,8 @@ It demonstrates real-world skills in **ETL, SQL modeling, visualization**, and *
 
 ## 🏗️ Architecture
 
+```
+
 APIs / Open Data
 ↓
 Python (ETL scripts: fetch_stock_data.py, fetch_interest_rates.py)
@@ -24,8 +27,9 @@ SQL Models (market_overview, market_summary)
 ↓
 Power BI Dashboard
 
-## Stack:
+```
 
+**Stack:**  
 Python • PostgreSQL • Power BI • SQLAlchemy • yfinance • pandas • matplotlib
 
 ---
@@ -58,10 +62,15 @@ tickers = ["NOKIA.HE", "FORTUM.HE", "NESTE.HE"]
 data = yf.download(tickers, start="2020-01-01").stack(level=1).reset_index()
 data.columns = ["ts_date","ticker","open","high","low","close","adj_close","volume"]
 data.to_sql("stock_prices", engine, schema="raw", if_exists="append", index=False)
+
 print("✅ Stock data loaded successfully.")
+```
+
+---
 
 ## 🗃️ Example: SQL Model
 
+```sql
 DROP TABLE IF EXISTS model.market_overview;
 
 CREATE TABLE model.market_overview AS
@@ -73,24 +82,29 @@ SELECT
     ROUND(SUM(volume)/1000000.0,2) AS total_volume_millions
 FROM raw.stock_prices
 GROUP BY ticker;
+```
+
+---
 
 ## 📊 Power BI Dashboard
 
-KPI Cards: Top Gainer | Top Loser | Most Volatile | Highest Volume
+- **KPI Cards:** Top Gainer | Top Loser | Most Volatile | Highest Volume
+- **Charts:** Avg Close / Volatility trends per ticker
+- _(Planned)_ Overlay Euribor and CPI
 
-Charts: Avg Close / Volatility trends per ticker
-
-(Planned) Overlay Euribor and CPI
+---
 
 ## 🧠 Key Learnings
 
-Designed a full Python → PostgreSQL → Power BI pipeline.
+- Designed a full **Python → PostgreSQL → Power BI** pipeline.
+- Built reproducible **SQL models** for financial analysis.
+- Focused on **decision-support insights** – not just visuals.
 
-Built reproducible SQL models for financial analysis.
-
-Focused on decision-support insights – not just visuals.
+---
 
 ## 📂 Project Structure
+
+```
 finnish-market-monitor/
 ├── etl/
 │   ├── fetch_stock_data.py
@@ -100,22 +114,28 @@ finnish-market-monitor/
 │   ├── model_market_overview.sql
 │   └── model_market_summary.sql
 ├── notebooks/
-│   └── analysis.ipynb
-|   └── visualize_stock_data.py
+│   ├── analysis.ipynb
+│   └── visualize_stock_data.py
 ├── images/
+├── docs/
+│   ├── project_summary.pdf
+│   ├── architecture.txt
+│   └── data_sources.md
 ├── README.md
 ├── requirements.txt
 └── test_connection.py
+```
+
+---
 
 ## 🧩 Next Steps
 
-Integrate Bank of Finland (Euribor 3M / ECB rates).
+1. Integrate Bank of Finland (Euribor 3M / ECB rates).
+2. Add Statistics Finland macroeconomic data.
+3. Create `model.market_summary` to combine all sources.
+4. Automate daily refresh and publish Power BI dashboard.
 
-Add Statistics Finland macroeconomic data.
-
-Create model.market_summary to combine all sources.
-
-Automate daily refresh and publish Power BI dashboard.
+---
 
 ## 🧠 Skills Showcased
 
@@ -126,14 +146,14 @@ Automate daily refresh and publish Power BI dashboard.
 | **Analytics & BI**   | Power BI, DAX KPIs, visual storytelling             |
 | **Finance Domain**   | Volatility, interest-rate impact, sector comparison |
 
+---
+
 ## 🚀 Impact
 
-This project demonstrates how an analyst can build a scalable, insight-driven financial analytics system.
+This project demonstrates how an analyst can build a **scalable, insight-driven financial analytics system**.
+
 It helps management identify:
 
-Market stress via volatility,
-
-Rate-sensitive sectors, and
-
-Data-based investment opportunities.
-```
+- Market stress via volatility
+- Rate-sensitive sectors
+- Data-based investment opportunities
