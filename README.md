@@ -24,7 +24,8 @@ SQL Models (market_overview, market_summary)
 ↓
 Power BI Dashboard
 
-**Stack:**  
+## Stack:
+
 Python • PostgreSQL • Power BI • SQLAlchemy • yfinance • pandas • matplotlib
 
 ---
@@ -59,7 +60,7 @@ data.columns = ["ts_date","ticker","open","high","low","close","adj_close","volu
 data.to_sql("stock_prices", engine, schema="raw", if_exists="append", index=False)
 print("✅ Stock data loaded successfully.")
 
-🗃️ Example: SQL Model
+## 🗃️ Example: SQL Model
 
 DROP TABLE IF EXISTS model.market_overview;
 
@@ -73,7 +74,7 @@ SELECT
 FROM raw.stock_prices
 GROUP BY ticker;
 
-📊 Power BI Dashboard
+## 📊 Power BI Dashboard
 
 KPI Cards: Top Gainer | Top Loser | Most Volatile | Highest Volume
 
@@ -81,7 +82,7 @@ Charts: Avg Close / Volatility trends per ticker
 
 (Planned) Overlay Euribor and CPI
 
-🧠 Key Learnings
+## 🧠 Key Learnings
 
 Designed a full Python → PostgreSQL → Power BI pipeline.
 
@@ -89,7 +90,7 @@ Built reproducible SQL models for financial analysis.
 
 Focused on decision-support insights – not just visuals.
 
-📂 Project Structure
+## 📂 Project Structure
 finnish-market-monitor/
 ├── etl/
 │   ├── fetch_stock_data.py
@@ -106,7 +107,7 @@ finnish-market-monitor/
 ├── requirements.txt
 └── test_connection.py
 
-🧩 Next Steps
+## 🧩 Next Steps
 
 Integrate Bank of Finland (Euribor 3M / ECB rates).
 
@@ -116,7 +117,7 @@ Create model.market_summary to combine all sources.
 
 Automate daily refresh and publish Power BI dashboard.
 
-🧠 Skills Showcased
+## 🧠 Skills Showcased
 
 | Area                 | Tools / Concepts                                    |
 | -------------------- | --------------------------------------------------- |
@@ -125,7 +126,7 @@ Automate daily refresh and publish Power BI dashboard.
 | **Analytics & BI**   | Power BI, DAX KPIs, visual storytelling             |
 | **Finance Domain**   | Volatility, interest-rate impact, sector comparison |
 
-🚀 Impact
+## 🚀 Impact
 
 This project demonstrates how an analyst can build a scalable, insight-driven financial analytics system.
 It helps management identify:
